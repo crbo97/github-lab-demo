@@ -1,23 +1,21 @@
-name: Run Python Script 
-on:                                # Triggers
-  push:                            # Run on a push event
-    branches: [ main ]             # Only when pushing to branch "main"
+name: Run Python Script
+
+on:
+  push:
+    branches: [ main ]
 
 jobs:
-  run-python:                      # A job named "run-python"
-    runs-on: ubuntu-latest         # Use a GitHub-hosted Ubuntu runner
+  run-python:
+    runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out your repository files
       - name: Checkout code
-        uses: actions/checkout@v4  # Pulls your repo contents into the runner
+        uses: actions/checkout@v4
 
-      # Step 2: Set up Python 3
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x'    # Install latest Python 3 available
+          python-version: '3.x'
 
-      # Step 3: Run the Python script
       - name: Run hello.py
-        run: python hello.py       # Execute your script (hello.py must be in repo root)
+        run: python hello.py
